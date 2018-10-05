@@ -10,6 +10,7 @@ class DrinksController < ApiController
   # GET /drinks/:id
   def show
     @drink = Drink.find(params[:id])
+    puts '==============================drinks route did show================'
     render json: @drink.to_json(:include => { :ingredients => { :only => [:id, :description] }})
   end
 end
